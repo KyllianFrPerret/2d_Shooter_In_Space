@@ -1,0 +1,25 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://c8y3hhilkqrnk"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j3pel"]
+resource_name = "Distortion"
+pre_gain = 54.68
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_g28q7"]
+resource_name = "Distortion"
+pre_gain = 37.45
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_j3pel"]
+resource_name = "PitchShift"
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectReverb_j3pel")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/0/effect/1/enabled = true
+bus/0/effect/2/effect = SubResource("AudioEffectDistortion_g28q7")
+bus/0/effect/2/enabled = true
+bus/0/effect/3/effect = SubResource("AudioEffectPitchShift_j3pel")
+bus/0/effect/3/enabled = true

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c8ygx72rfapki"]
+
+[ext_resource type="Texture2D" uid="uid://dtnl7mrf7dbqe" path="res://KennyAssets/SpaceShooterRedux/Backgrounds/purple.png" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://cimach44tu7v8" path="res://Scenes/player.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://ctu7sijq0k8qg" path="res://Scenes/spawner_monster.tscn" id="3_8gbba"]
+
+[node name="Main" type="Node2D" unique_id=549449407]
+
+[node name="Purple" type="Sprite2D" parent="." unique_id=81735383]
+texture_repeat = 2
+position = Vector2(12, 11)
+scale = Vector2(3.2890625, 5.768067)
+texture = ExtResource("1_jjgbg")
+region_rect = Rect2(360, 720, 0, 0)
+
+[node name="Player" parent="." unique_id=1477252465 instance=ExtResource("2_bo1nx")]
+position = Vector2(0, 557)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=833578478]
+
+[node name="spawnerMonster" parent="." unique_id=1433654493 instance=ExtResource("3_8gbba")]
+position = Vector2(4, -745)
