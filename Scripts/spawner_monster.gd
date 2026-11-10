@@ -2,7 +2,7 @@ extends Area2D
 
 
 @export var enemy_scene: PackedScene
-@export var time_between_shots: float = 0.07
+@export var time_between_shots: float = 0.08
 var cooldown: float = 0.0
 
 

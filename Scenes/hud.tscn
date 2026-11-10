@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://dp75xr2e72p3g"]
+
+[ext_resource type="FontFile" uid="uid://dbklsotvtksun" path="res://Evil Empire.otf" id="1_37p78"]
+[ext_resource type="Script" uid="uid://bg4n8r8eg2mxm" path="res://Scripts/hud.gd" id="1_64ctp"]
+[ext_resource type="Texture2D" uid="uid://ke4fw61ral4" path="res://KennyAssets/SpaceShooterRedux/UI/playerLife2_blue.png" id="3_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://baqyaydqai6vt" path="res://sang.png" id="4_6fbih"]
+[ext_resource type="Texture2D" uid="uid://dnid5adnyvycf" path="res://wing.png" id="4_36asn"]
+[ext_resource type="FontFile" uid="uid://cy7n2s3me2evu" path="res://GothicLeaf.ttf" id="4_t1xeu"]
+[ext_resource type="FontFile" uid="uid://orh3oewahgo1" path="res://font/Gothic War.otf" id="7_8jye8"]
+
+[sub_resource type="Theme" id="Theme_n2snw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_37p78"]
+font = ExtResource("1_37p78")
+font_size = 50
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_36asn"]
+font = ExtResource("4_t1xeu")
+font_size = 87
+
+[sub_resource type="LabelSettings" id="LabelSettings_43w4t"]
+font = ExtResource("7_8jye8")
+font_size = 59
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Hud" type="CanvasLayer" unique_id=514565251]
+process_mode = 3
+script = ExtResource("1_64ctp")
+
+[node name="life_container" type="VBoxContainer" parent="." unique_id=170030726]
+offset_left = 664.0
+offset_top = 19.0
+offset_right = 704.0
+offset_bottom = 105.0
+
+[node name="TextureRect" type="TextureRect" parent="life_container" unique_id=945088183]
+layout_mode = 2
+texture = ExtResource("3_8sq4i")
+
+[node name="TextureRect2" type="TextureRect" parent="life_container" unique_id=592611059]
+layout_mode = 2
+texture = ExtResource("3_8sq4i")
+
+[node name="TextureRect3" type="TextureRect" parent="life_container" unique_id=1378007478]
+layout_mode = 2
+texture = ExtResource("3_8sq4i")
+
+[node name="TextureRect4" type="TextureRect" parent="life_container" unique_id=921369058]
+layout_mode = 2
+texture = ExtResource("3_8sq4i")
+
+[node name="TextureRect5" type="TextureRect" parent="life_container" unique_id=395981221]
+layout_mode = 2
+texture = ExtResource("3_8sq4i")
+
+[node name="score" type="Label" parent="." unique_id=419023152]
+offset_left = 81.0
+offset_top = 26.0
+offset_right = 210.0
+offset_bottom = 79.0
+pivot_offset = Vector2(69.32, 23.445)
+theme = SubResource("Theme_n2snw")
+text = "Score :"
+label_settings = SubResource("LabelSettings_37p78")
+
+[node name="game_over_screen" type="Control" parent="." unique_id=518283148]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 717.0
+offset_bottom = 1095.0
+pivot_offset = Vector2(356.15, 600)
+
+[node name="TextureRect2" type="TextureRect" parent="game_over_screen" unique_id=1020008370]
+z_index = -288
+layout_mode = 0
+offset_left = -127.0
+offset_top = 62.0
+offset_right = 732.0
+offset_bottom = 663.0
+texture = ExtResource("4_36asn")
+
+[node name="Label" type="Label" parent="game_over_screen" unique_id=231239105]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 287.0
+offset_right = 1027.0
+offset_bottom = 472.0
+text = "GAME 
+OVER"
+label_settings = SubResource("LabelSettings_36asn")
+
+[node name="quit_button" type="Button" parent="game_over_screen" unique_id=1966371542]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 739.0
+offset_right = 459.0
+offset_bottom = 904.0
+text = "QUIT"
+
+[node name="restart_button" type="Button" parent="game_over_screen" unique_id=611236566]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 496.0
+offset_right = 451.0
+offset_bottom = 702.0
+text = "Restart"
+
+[node name="TextureRect" type="TextureRect" parent="game_over_screen" unique_id=314686432]
+z_index = -15
+layout_mode = 0
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 726.0
+offset_bottom = 1292.0
+mouse_filter = 2
+texture = ExtResource("4_6fbih")
+
+[node name="Label2" type="Label" parent="game_over_screen" unique_id=1030358068]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 1063.0
+offset_right = 699.0
+offset_bottom = 1258.0
+text = "Machine, i know you're here. I can smell 
+the insolent stench of your bloodstained 
+hands. I await you down below."
+label_settings = SubResource("LabelSettings_43w4t")
+horizontal_alignment = 1
+
+[node name="DamageFlash" type="ColorRect" parent="." unique_id=259923974]
+z_index = -11
+offset_right = 720.0
+offset_bottom = 1292.0
+mouse_filter = 2
+color = Color(1, 0.09803922, 0.14901961, 0)
+
+[connection signal="pressed" from="game_over_screen/quit_button" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="game_over_screen/restart_button" to="." method="_on_button_pressed"]

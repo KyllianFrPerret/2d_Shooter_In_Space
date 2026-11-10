@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmebsoaa78f2c"]
 
-[ext_resource type="Script" uid="uid://daqqv8feurggs" path="res://Scenes/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Script" uid="uid://daqqv8feurggs" path="res://Scripts/enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://ca513f5s5u4ji" path="res://KennyAssets/SpaceShooterRedux/Enemies/enemyRed1.png" id="1_hghv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1f0kj"]
@@ -8,6 +8,10 @@ size = Vector2(91, 87.5625)
 
 [node name="Enemy" type="Area2D" unique_id=952676477]
 script = ExtResource("1_1f0kj")
+speed = null
+knockback_force = null
+knockback_recovery = null
+score_point = null
 
 [node name="EnemyRed1" type="Sprite2D" parent="." unique_id=855495983]
 texture = ExtResource("1_hghv2")

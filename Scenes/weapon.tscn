@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqfi1e1rmi1ss"]
 
-[ext_resource type="Script" uid="uid://b2072m8b0a4rb" path="res://Scenes/weapon.gd" id="1_er6cq"]
+[ext_resource type="Script" uid="uid://b2072m8b0a4rb" path="res://Scripts/weapon.gd" id="1_er6cq"]
 [ext_resource type="PackedScene" uid="uid://dl4y6ta2gnn86" path="res://Scenes/bullet.tscn" id="2_qv81b"]
 [ext_resource type="AudioStream" uid="uid://cxmp3hq564si4" path="res://Effects/Sounds/audiomass-output.wav" id="3_e1ly8"]
 
@@ -11,3 +11,4 @@ bullet_scene = ExtResource("2_qv81b")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1418108144]
 stream = ExtResource("3_e1ly8")
 volume_db = 2.252
+bus = &"SFX"

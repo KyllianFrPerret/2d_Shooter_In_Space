@@ -4,6 +4,9 @@ extends Node2D
 @export var speed: float = -300.0
 @export var knockback_force: float = 400
 @export var knockback_recovery: float = 2000
+@export var score_point: int = 67
+
+@export var debris_fx: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 
@@ -46,14 +49,27 @@ func take_damage(amount: int) -> void:
 	instance2.global_position = global_position
 	get_tree().current_scene.add_child(instance2)
 	lifepoint-=1
+	get_viewport().get_camera_2d().add_trauma(2.0)
 	$EnemyRed1.modulate = Color(1,getHealthRathio() ,getHealthRathio() )
 	if lifepoint==0:
+		GameManager.add_score(score_point)
 		var scene_ressource: Variant = load("res://Effects/explosion.tscn")
 		var instance: Variant = scene_ressource.instantiate()
-		instance.scale = Vector2(10.0, 10.0)
+		instance.scale = Vector2(40.0, 40.0)
 		instance.global_position = global_position
 		get_tree().current_scene.add_child(instance)
+		
+		var scene_ressourceB: Variant = load("res://Effects/debris.tscn")
+		var instanceB: Variant = scene_ressourceB.instantiate()
+		instanceB.scale = Vector2(20.0, 20.0)
+		instanceB.global_position = global_position
+		get_tree().current_scene.add_child(instanceB)
+
 		queue_free()
+		GameManager.hit_stope(1.0)
+		get_viewport().get_camera_2d().add_trauma(-0.8)
+		
+
 
 
 func _on_area_entered(area: Area2D) -> void:

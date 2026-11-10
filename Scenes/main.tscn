@@ -1,8 +1,23 @@
 [gd_scene format=3 uid="uid://c8ygx72rfapki"]
 
-[ext_resource type="Texture2D" uid="uid://dtnl7mrf7dbqe" path="res://KennyAssets/SpaceShooterRedux/Backgrounds/purple.png" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://cimach44tu7v8" path="res://Scenes/player.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://ctu7sijq0k8qg" path="res://Scenes/spawner_monster.tscn" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://cnhv4y02igtbq" path="res://Scripts/camera_shake.gd" id="3_kry3j"]
+[ext_resource type="PackedScene" uid="uid://dp75xr2e72p3g" path="res://Scenes/hud.tscn" id="4_jjvhh"]
+[ext_resource type="AudioStream" uid="uid://dwxnsmvvjfpj7" path="res://sound/ost.wav" id="5_kry3j"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jjvhh"]
+load_path = "res://.godot/imported/purple.png-f6543dc3b3b598d9c66e90e9839a77a5.ctex"
+
+[sub_resource type="Environment" id="Environment_jjvhh"]
+background_mode = 3
+ambient_light_color = Color(0.91764706, 0, 0, 1)
+ambient_light_energy = 8.6
+glow_enabled = true
+glow_intensity = 1.59
+glow_bloom = 0.9
+adjustment_enabled = true
+adjustment_brightness = 1.1
 
 [node name="Main" type="Node2D" unique_id=549449407]
 
@@ -10,13 +25,26 @@
 texture_repeat = 2
 position = Vector2(12, 11)
 scale = Vector2(3.2890625, 5.768067)
-texture = ExtResource("1_jjgbg")
+texture = SubResource("CompressedTexture2D_jjvhh")
 region_rect = Rect2(360, 720, 0, 0)
 
 [node name="Player" parent="." unique_id=1477252465 instance=ExtResource("2_bo1nx")]
 position = Vector2(0, 557)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=833578478]
+process_mode = 3
+ignore_rotation = false
+script = ExtResource("3_kry3j")
 
 [node name="spawnerMonster" parent="." unique_id=1433654493 instance=ExtResource("3_8gbba")]
 position = Vector2(4, -745)
+
+[node name="Hud" parent="." unique_id=514565251 instance=ExtResource("4_jjvhh")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1390082821]
+environment = SubResource("Environment_jjvhh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1700152610]
+stream = ExtResource("5_kry3j")
+volume_db = 24.0
+autoplay = true

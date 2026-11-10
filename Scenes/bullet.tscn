@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dl4y6ta2gnn86"]
 
-[ext_resource type="Script" uid="uid://7cn2nejk74s4" path="res://Scenes/bullet.gd" id="1_oduel"]
+[ext_resource type="Script" uid="uid://7cn2nejk74s4" path="res://Scripts/bullet.gd" id="1_oduel"]
 [ext_resource type="PackedScene" path="res://Effects/muzzle_flash.tscn" id="2_oduel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oduel"]
